@@ -1,7 +1,9 @@
 #!/bin/bash
 BUILD_DIR=$1
 
-TESSERACT_OCR_REMOTE=https://dl.dropboxusercontent.com/u/44286028/tesseract/tesseract-ocr-3.04.00.tar.gz
+#TESSERACT_OCR_REMOTE=https://dl.dropboxusercontent.com/u/44286028/tesseract/tesseract-ocr-3.04.00.tar.gz
+TESSERACT_OCR_REMOTE=https://github.com/tesseract-ocr/tesseract/archive/3.04.00.tar.gz
+
 INSTALL_DIR=$BUILD_DIR/vendor/tesseract-ocr/
 INSTALL_DIR_TRAINING_DATA=$BUILD_DIR/vendor/
 TESSERACT_OCR_DIR=${HOME}/vendor/tesseract-ocr
