@@ -2,7 +2,9 @@
 BUILD_DIR=$1
 
 #TESSERACT_OCR_REMOTE=https://dl.dropboxusercontent.com/u/44286028/tesseract/tesseract-ocr-3.04.00.tar.gz
-TESSERACT_OCR_REMOTE=https://github.com/tesseract-ocr/tesseract/archive/3.04.00.tar.gz
+#TESSERACT_OCR_REMOTE=https://github.com/tesseract-ocr/tesseract/archive/3.04.00.tar.gz
+TESSERACT_OCR_REMOTE=http://http.debian.net/debian/pool/main/t/tesseract/tesseract_3.04.00.orig.tar.gz
+
 
 INSTALL_DIR=$BUILD_DIR/vendor/tesseract-ocr/
 INSTALL_DIR_TRAINING_DATA=$BUILD_DIR/vendor/
