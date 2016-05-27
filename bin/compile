@@ -1,6 +1,8 @@
 #!/bin/bash
 BUILD_DIR=$1
+TESSERACT_OCR_LOCAL_VERSION=3.03
 
+TESSERACT_OCR_LOCAL=tesseract-ocr-$TESSERACT_OCR_LOCAL_VERSION.tar.gz
 #TESSERACT_OCR_REMOTE=https://dl.dropboxusercontent.com/u/44286028/tesseract/tesseract-ocr-3.04.00.tar.gz
 #TESSERACT_OCR_REMOTE=https://github.com/tesseract-ocr/tesseract/archive/3.04.00.tar.gz
 TESSERACT_OCR_REMOTE=http://http.debian.net/debian/pool/main/t/tesseract/tesseract_3.04.00.orig.tar.gz
@@ -13,9 +15,13 @@ ENVSCRIPT=$BUILD_DIR/.profile.d/tesseract-ocr.sh
 
 TESSERACT_OCR_LANGUAGES=swe,eng
 
-echo "Getting Tesseract-ocr Binaries from $TESSERACT_OCR_REMOTE..."
+echo "Unpacking Tesseract-OCR binaries"
 mkdir -p $INSTALL_DIR
-curl $TESSERACT_OCR_REMOTE -o - | tar -xz -C $INSTALL_DIR -f -
+tar -zxvf $TESSERACT_OCR_LOCAL -C $INSTALL_DIR
+
+#echo "Getting Tesseract-ocr Binaries from $TESSERACT_OCR_REMOTE..."
+#mkdir -p $INSTALL_DIR
+#curl $TESSERACT_OCR_REMOTE -o - | tar -xz -C $INSTALL_DIR -f -
 
 if [ $TESSERACT_OCR_LANGUAGES ]
 then
@@ -30,7 +36,7 @@ then
    done
 fi
 
-echo "Building runtime environment for tesseract-ocr"
+echo "Building runtime environment for Tesseract-OCR"
 mkdir -p $BUILD_DIR/.profile.d
 echo "export PATH=\"$TESSERACT_OCR_DIR/bin:\$PATH\"" > $ENVSCRIPT
 echo "export LD_LIBRARY_PATH=\"$TESSERACT_OCR_DIR/lib:\$LD_LIBRARY_PATH\"" >> $ENVSCRIPT
