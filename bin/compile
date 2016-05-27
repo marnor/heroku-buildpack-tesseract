@@ -30,7 +30,9 @@ then
    do
      lang="${array[i]}"
      echo $lang 'training data'
-     curl https://dl.dropboxusercontent.com/u/44286028/tesseract/tesseract-ocr-3.04.$lang.tar.gz \
+     
+     # https://dl.dropboxusercontent.com/u/44286028/tesseract/tesseract-ocr-3.04.$lang.tar.gz
+     curl https://tesseract-ocr.googlecode.com/files/tesseract-ocr-3.02.$lang.tar.gz \
   -o - | tar -xz -C $INSTALL_DIR_TRAINING_DATA -f -
 
    done
